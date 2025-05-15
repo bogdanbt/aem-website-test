@@ -1,4 +1,5 @@
 export default function decorate(block) {
+  console.log("Decorating hero block", block);
   const img = block.querySelector("img");
   const title = block.querySelector("h1, h2, h3");
   const description = block.querySelector("p");
