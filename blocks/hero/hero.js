@@ -10,8 +10,12 @@ export default function decorate(block) {
 
   paragraphs.forEach((p) => {
     const a = p.querySelector("a");
-    if (a && !link) link = a;
-    else if (!description) description = p;
+    if (a && !link) {
+      link = a;
+      p.remove(); // 💥 удаляем обёртку <p>, чтобы не мешала
+    } else if (!description) {
+      description = p;
+    }
   });
 
   const wrapper = document.createElement("div");
@@ -24,8 +28,20 @@ export default function decorate(block) {
 
   content.appendChild(heading);
   if (description) content.appendChild(description);
+
   if (link) {
-    link.classList.add("button");
+    // Автостили по тексту
+    const text = link.textContent.trim().toLowerCase();
+    link.classList.add("button"); // базовый стиль
+
+    if (text.includes("primary")) {
+      link.classList.add("primary");
+    } else if (text.includes("secondary")) {
+      link.classList.add("secondary");
+    } else if (text.includes("default")) {
+      link.classList.add("default");
+    }
+
     content.appendChild(link);
   }
 

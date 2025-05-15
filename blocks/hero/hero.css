@@ -39,10 +39,28 @@
 .hero-content .button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background: white;
-    color: black;
     border-radius: 4px;
     text-decoration: none;
     font-weight: bold;
     margin-top: 1rem;
+    background: white;
+    color: black;
+    border: none;
+}
+
+/* Дополнительные стили кнопок */
+.hero-content .button.primary {
+    background: #007bff;
+    color: white;
+}
+
+.hero-content .button.secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.hero-content .button.default {
+    background: white;
+    color: black;
+    border: 1px solid black;
 }
