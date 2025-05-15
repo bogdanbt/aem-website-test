@@ -1,13 +1,13 @@
 .hero-wrapper {
     position: relative;
-    min-height: 400px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
-    overflow: hidden;
     text-align: center;
     color: white;
+    padding: 1rem;
 }
 
 .hero-image {
@@ -20,6 +20,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .hero-content {
@@ -39,11 +40,12 @@
 }
 
 .hero-content .button {
+    display: inline-block;
     padding: 0.75rem 1.5rem;
     background: white;
     color: black;
-    border: none;
     border-radius: 4px;
     text-decoration: none;
     font-weight: bold;
+    border: none;
 }

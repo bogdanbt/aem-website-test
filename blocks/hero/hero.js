@@ -2,8 +2,18 @@ export default function decorate(block) {
   const picture = block.querySelector("picture");
   const heading = block.querySelector("h1, h2");
   const paragraphs = block.querySelectorAll("p");
-  const description = paragraphs[0];
-  const link = paragraphs.length > 1 ? paragraphs[1].querySelector("a") : null;
+
+  let description = null;
+  let link = null;
+
+  paragraphs.forEach((p) => {
+    if (!description && !p.querySelector("a")) {
+      description = p;
+    }
+    if (!link && p.querySelector("a")) {
+      link = p.querySelector("a");
+    }
+  });
 
   if (!picture || !heading) return;
 
