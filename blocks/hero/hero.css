@@ -1,31 +1,26 @@
 .hero-wrapper {
     position: relative;
     width: 100%;
-    height: 70vh;
-    min-height: 400px;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* ВЫРАВНИВАЕТ ТЕКСТ ВЛЕВО */
-    padding: 0 5%;
     text-align: left;
 }
 
 .hero-image {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+    width: 100%;
+    display: block;
 }
 
 .hero-image img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     display: block;
 }
 
 .hero-content {
-    position: relative;
+    position: absolute;
+    top: 20%;
+    left: 5%;
     z-index: 1;
     color: white;
     max-width: 600px;
@@ -34,11 +29,10 @@
 .hero-content h1 {
     font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 1rem;
-    font-weight: bold;
 }
 
 .hero-content p {
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     margin-bottom: 1rem;
 }
 
@@ -50,6 +44,5 @@
     border-radius: 4px;
     text-decoration: none;
     font-weight: bold;
-    border: none;
     margin-top: 1rem;
 }

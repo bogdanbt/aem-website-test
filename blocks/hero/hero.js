@@ -10,11 +10,8 @@ export default function decorate(block) {
 
   paragraphs.forEach((p) => {
     const a = p.querySelector("a");
-    if (a && !link) {
-      link = a;
-    } else if (!description) {
-      description = p;
-    }
+    if (a && !link) link = a;
+    else if (!description) description = p;
   });
 
   const wrapper = document.createElement("div");
@@ -24,6 +21,7 @@ export default function decorate(block) {
 
   const content = document.createElement("div");
   content.className = "hero-content";
+
   content.appendChild(heading);
   if (description) content.appendChild(description);
   if (link) {
