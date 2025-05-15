@@ -3,19 +3,19 @@ export default function decorate(block) {
   const heading = block.querySelector("h1, h2");
   const paragraphs = block.querySelectorAll("p");
 
+  if (!picture || !heading) return;
+
   let description = null;
   let link = null;
 
   paragraphs.forEach((p) => {
-    if (!description && !p.querySelector("a")) {
+    const a = p.querySelector("a");
+    if (a && !link) {
+      link = a;
+    } else if (!description) {
       description = p;
     }
-    if (!link && p.querySelector("a")) {
-      link = p.querySelector("a");
-    }
   });
-
-  if (!picture || !heading) return;
 
   const wrapper = document.createElement("div");
   wrapper.className = "hero-wrapper";
