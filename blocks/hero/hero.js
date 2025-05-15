@@ -1,29 +1,27 @@
 export default function decorate(block) {
-  const pic = block.querySelector("picture");
+  const picture = block.querySelector("picture");
   const heading = block.querySelector("h1, h2");
-  const allParagraphs = block.querySelectorAll("p");
-  const desc = allParagraphs.length > 0 ? allParagraphs[0] : null;
-  const link =
-    allParagraphs.length > 1 ? allParagraphs[1].querySelector("a") : null;
+  const paragraphs = block.querySelectorAll("p");
+  const description = paragraphs[0];
+  const link = paragraphs.length > 1 ? paragraphs[1].querySelector("a") : null;
 
-  if (!pic || !heading) return;
+  if (!picture || !heading) return;
 
   const wrapper = document.createElement("div");
   wrapper.className = "hero-wrapper";
 
-  pic.classList.add("hero-image");
+  picture.classList.add("hero-image");
 
   const content = document.createElement("div");
   content.className = "hero-content";
   content.appendChild(heading);
-
-  if (desc) content.appendChild(desc);
+  if (description) content.appendChild(description);
   if (link) {
     link.classList.add("button");
-    content.appendChild(link.closest("p"));
+    content.appendChild(link);
   }
 
-  wrapper.append(pic, content);
+  wrapper.append(picture, content);
   block.innerHTML = "";
   block.append(wrapper);
 }

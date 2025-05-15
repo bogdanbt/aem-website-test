@@ -1,21 +1,13 @@
 .hero-wrapper {
     position: relative;
-    height: 400px;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2rem;
     overflow: hidden;
-}
-
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
     text-align: center;
-    z-index: 1;
-    padding: 1rem;
+    color: white;
 }
 
 .hero-image {
@@ -30,8 +22,23 @@
     object-fit: cover;
 }
 
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    margin-bottom: 1rem;
+}
+
 .hero-content .button {
-    margin-top: 1rem;
     padding: 0.75rem 1.5rem;
     background: white;
     color: black;
