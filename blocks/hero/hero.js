@@ -7,21 +7,20 @@ export default function decorate(block) {
   block.classList.add("hero");
 
   if (img) {
-    const picture = document.createElement("picture");
+    const picture = img.closest("picture");
     picture.classList.add("hero-image");
-    picture.appendChild(img);
     block.prepend(picture);
   }
 
   const content = document.createElement("div");
   content.className = "hero-content";
 
-  if (title) content.appendChild(title);
-  if (description) content.appendChild(description);
+  if (title) content.append(title);
+  if (description) content.append(description);
   if (button) {
     button.classList.add("button");
-    content.appendChild(button);
+    content.append(button);
   }
 
-  block.appendChild(content);
+  block.append(content);
 }
