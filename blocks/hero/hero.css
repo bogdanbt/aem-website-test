@@ -1,66 +1,37 @@
-.hero-wrapper {
+.hero-container .hero-wrapper {
+    max-width: unset;
+    padding: 0;
+}
+
+.hero {
     position: relative;
-    width: 100%;
-    overflow: hidden;
-    text-align: left;
+    padding: 40px 24px;
+    min-height: 300px;
 }
 
-.hero-image {
-    width: 100%;
-    display: block;
+.hero h1 {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--background-color);
 }
 
-.hero-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
-}
-
-.hero-content {
+.hero picture {
     position: absolute;
-    top: 20%;
-    left: 5%;
-    z-index: 1;
-    color: white;
-    max-width: 600px;
+    z-index: -1;
+    inset: 0;
+    object-fit: cover;
+    box-sizing: border-box;
 }
 
-.hero-content h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin-bottom: 1rem;
+.hero img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
-.hero-content p {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    margin-bottom: 1rem;
-}
-
-.hero-content .button {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 1rem;
-    background: white;
-    color: black;
-    border: none;
-}
-
-/* Дополнительные стили кнопок */
-.hero-content .button.primary {
-    background: #007bff;
-    color: white;
-}
-
-.hero-content .button.secondary {
-    background: #6c757d;
-    color: white;
-}
-
-.hero-content .button.default {
-    background: white;
-    color: black;
-    border: 1px solid black;
+@media (width >= 900px) {
+    .hero {
+        padding: 40px 32px;
+    }
 }
