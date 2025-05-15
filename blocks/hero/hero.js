@@ -1,29 +1,29 @@
-export default async function decorate(block) {
-  const picture = block.querySelector("picture");
+export default function decorate(block) {
+  const pic = block.querySelector("picture");
   const heading = block.querySelector("h1, h2");
-  const paragraph =
-    heading?.nextElementSibling?.tagName === "P"
-      ? heading.nextElementSibling
-      : null;
-  const link = paragraph?.nextElementSibling?.querySelector("a");
+  const allParagraphs = block.querySelectorAll("p");
+  const desc = allParagraphs.length > 0 ? allParagraphs[0] : null;
+  const link =
+    allParagraphs.length > 1 ? allParagraphs[1].querySelector("a") : null;
 
-  if (!picture || !heading) return;
+  if (!pic || !heading) return;
 
-  block.innerHTML = "";
-  const heroWrapper = document.createElement("div");
-  heroWrapper.className = "hero-wrapper";
+  const wrapper = document.createElement("div");
+  wrapper.className = "hero-wrapper";
 
-  picture.classList.add("hero-image");
+  pic.classList.add("hero-image");
+
   const content = document.createElement("div");
   content.className = "hero-content";
-
   content.appendChild(heading);
-  if (paragraph) content.appendChild(paragraph);
+
+  if (desc) content.appendChild(desc);
   if (link) {
     link.classList.add("button");
-    content.appendChild(link.closest("p") || link);
+    content.appendChild(link.closest("p"));
   }
 
-  heroWrapper.append(picture, content);
-  block.appendChild(heroWrapper);
+  wrapper.append(pic, content);
+  block.innerHTML = "";
+  block.append(wrapper);
 }
