@@ -3,6 +3,10 @@ export default function decorate(block) {
   const heading = block.querySelector("h1, h2");
   const paragraphs = block.querySelectorAll("p");
 
+  console.log("[HERO] ⬇️ Найдено picture:", picture);
+  console.log("[HERO] ⬇️ Найден заголовок:", heading);
+  console.log("[HERO] ⬇️ Все параграфы:", paragraphs);
+
   if (!picture || !heading) return;
 
   let description = null;
@@ -12,9 +16,11 @@ export default function decorate(block) {
     const a = p.querySelector("a");
     if (a && !link) {
       link = a;
-      p.remove(); // 💥 удаляем обёртку <p>, чтобы не мешала
+      console.log("[HERO] ✅ Найдена ссылка-кнопка:", link.textContent);
+      p.remove(); // удаляем <p>
     } else if (!description) {
       description = p;
+      console.log("[HERO] 📄 Найден description:", description.textContent);
     }
   });
 
@@ -30,9 +36,10 @@ export default function decorate(block) {
   if (description) content.appendChild(description);
 
   if (link) {
-    // Автостили по тексту
     const text = link.textContent.trim().toLowerCase();
-    link.classList.add("button"); // базовый стиль
+    console.log("[HERO] 🧪 Текст кнопки:", text);
+
+    link.classList.add("button");
 
     if (text.includes("primary")) {
       link.classList.add("primary");
@@ -43,9 +50,14 @@ export default function decorate(block) {
     }
 
     content.appendChild(link);
+    console.log("[HERO] ✅ Кнопка вставлена в hero-content");
+  } else {
+    console.warn("[HERO] ⚠️ Кнопка не найдена!");
   }
 
   wrapper.append(picture, content);
   block.innerHTML = "";
   block.append(wrapper);
+
+  console.log("[HERO] ✅ Hero блок построен");
 }
