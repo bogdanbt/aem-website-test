@@ -1,40 +1,37 @@
+.hero-container .hero-wrapper {
+    max-width: unset;
+    padding: 0;
+}
+
 .hero {
     position: relative;
-    color: white;
-    text-align: center;
+    padding: 40px 24px;
+    min-height: 300px;
 }
 
-.hero-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+.hero h1 {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--background-color);
 }
 
-.hero-content {
+.hero picture {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 1rem;
-    max-width: 800px;
+    z-index: -1;
+    inset: 0;
+    object-fit: cover;
+    box-sizing: border-box;
 }
 
-.hero-content h1,
-.hero-content h2 {
-    font-size: 2.5rem;
-    margin: 0 0 1rem;
+.hero img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-.hero-content .button {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: #000;
-    color: #fff;
-    border-radius: 4px;
-    text-decoration: none;
+@media (width >= 900px) {
+    .hero {
+        padding: 40px 32px;
+    }
 }
