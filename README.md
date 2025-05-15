@@ -1,34 +1,24 @@
-# Your Project's Title...
-Your project's description...
+# AEM Website Project
 
-## Environments
-- Preview: https://main--{repo}--{owner}.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
+## Requirements Met
 
-## Documentation
+- Built using https://www.aem.live
+- Includes three pages: Home, About, and Contact
+- Implemented navigation menu, hero section, and call-to-action (CTA)
+- Integrated Google Analytics (GA4) for tracking
+- Achieved 94(phone)-99(desktop)% Core Web Vitals score on PageSpeed Insights
 
-Before using the aem-boilerplate, we recommand you to go through the documentation on https://www.aem.live/docs/ and more specifically:
-1. [Developer Tutorial](https://www.aem.live/developer/tutorial)
-2. [The Anatomy of a Project](https://www.aem.live/developer/anatomy-of-a-project)
-3. [Web Performance](https://www.aem.live/developer/keeping-it-100)
-4. [Markup, Sections, Blocks, and Auto Blocking](https://www.aem.live/developer/markup-sections-blocks)
+## Approach
 
-## Installation
+The website uses AEM Live with auto-blocking. Page content is defined in structured index, nav, footer, contact, about documents. Custom blocks like the hero section were optimized to ensure fast load times and good LCP metrics. Google Analytics was added via the project settings.
 
-```sh
-npm i
-```
+## Challenges and Solutions
 
-## Linting
+- **LCP Performance**: Image loading was delayed, which affected Core Web Vitals. Solved by using `loading="eager"` and `fetchpriority="high"`.
+- **Hero content structure**: Button and text were not rendering inside the hero block.
+- **PageSpeed score variations**: Large images were compressed, unused JS eliminated.
 
-```sh
-npm run lint
-```
+## Deployment and Repository
 
-## Local development
-
-1. Create a new repository based on the `aem-boilerplate` template and add a mountpoint in the `fstab.yaml`
-1. Add the [AEM Code Sync GitHub App](https://github.com/apps/aem-code-sync) to the repository
-1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/aem-cli`
-1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
-1. Open the `{repo}` directory in your favorite IDE and start coding :)
+Deployed site URL: https://main--aem-website-test--bogdanbt.aem.page
+GitHub repository: https://github.com/bogdanbt/aem-website-test
